@@ -1,0 +1,24 @@
+[workspace]
+members = [
+    "examples/future-default",
+]
+
+[package]
+name = "option_either_or"
+description = "Option into Either conversion"
+authors = ["Michał Trybus <komar007@gmail.com>"]
+license = "MIT OR Apache-2.0"
+
+repository = "https://github.com/komar007/option_either_or"
+readme = "README.md"
+documentation = "https://docs.rs/option_either_or"
+
+categories = ["rust-patterns", "no-std"]
+keywords = ["option", "either", "conversion", "erasure"]
+
+version = "0.1.0"
+edition = "2018"
+rust-version = "1.63.0"
+
+[dependencies]
+either = "1.15.0"

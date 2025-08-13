@@ -1,0 +1,8 @@
+[package]
+name = "future-default"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+option_either_or = { path = "../../" }
+tokio = { version = "1.47.1", features = ["full"] }
