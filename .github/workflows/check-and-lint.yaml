@@ -86,6 +86,22 @@ jobs:
           command: build
           args: --release
 
+  build-example:
+    name: Build example
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+      - name: Release build example
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --release --manifest-path examples/future-default/Cargo.toml
+
   msrv:
     name: msrv
     runs-on: ubuntu-latest
