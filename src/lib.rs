@@ -2,7 +2,7 @@
 //!
 //! Deriving the naming conventions from [`Option::ok_or`] and [`Option::ok_or_else`] would lead to
 //! symmetrical methods: `left_or` and `left_or_else` (and analogically for converting [`Some`] to
-//! [`Right`]), but since the purpose of this conversion pattern is to be a replacement of
+//! [`Right`]), but since the purpose of this conversion pattern is to be a generalization of
 //! [`Option::unwrap_or`] ([`_else`]) supporting different types for different branches, whether
 //! [`Some`] maps to [`Left`] or [`Right`] is irrelevant. As a result, the [`OptionEitherOr`]
 //! extension trait provides [`either_or`] and [`either_or_else`].
@@ -21,11 +21,16 @@
 
 use either::Either;
 
+/// A trait that provides conversion to [`Either`]
 pub trait OptionEitherOr {
+    /// The type that will be converted into [`Either::Right`]
     type R;
 
+    /// Convert `Self::R` into [`Either::Right`] or value returned from `f` into [`Either::Left`]
+    /// if [`None`].
     fn either_or_else<F: FnOnce() -> L, L>(self, f: F) -> Either<L, Self::R>;
 
+    /// Convert `Self::R` into [`Either::Right`] or `l` into [`Either::Left`] if [`None`].
     fn either_or<L>(self, l: L) -> Either<L, Self::R>
     where
         Self: Sized,
