@@ -16,7 +16,7 @@ documentation = "https://docs.rs/option_either_or"
 categories = ["rust-patterns", "no-std"]
 keywords = ["option", "either", "conversion", "erasure"]
 
-version = "0.1.0"
+version = "1.0.0"
 edition = "2018"
 rust-version = "1.63.0"
 
