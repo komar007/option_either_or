@@ -1,4 +1,7 @@
-use std::{future::Pending, time::Duration};
+use std::{
+    future::{Future, Pending},
+    time::Duration,
+};
 
 use option_either_or::OptionEitherOr;
 
